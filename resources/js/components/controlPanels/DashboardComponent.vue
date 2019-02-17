@@ -1,8 +1,9 @@
 <template>
   <div class="container">
+      <nav-horizontal :title="title" :links="links"></nav-horizontal>
       <h1>Gráficos</h1>
       <hr>
-
+      
       <div class="row">
         <div class="col">
           <chart-six
@@ -50,12 +51,15 @@
 </template>
 
 <script>
-import TestChartsSix from './charts/TestChartsSix'
-import TestCharts from './charts/TestCharts'
-import TestChartsTwo from './charts/TestChartsTwo'
-import TestChartsThree from './charts/TestChartsThree'
-import TestChartsFour from './charts/TestChartsFour'
-import TestChartsFive from './charts/TestChartsFive'
+//Charts Vue Charts
+import TestChartsSix from '../charts/TestChartsSix'
+import TestCharts from '../charts/TestCharts'
+import TestChartsTwo from '../charts/TestChartsTwo'
+import TestChartsThree from '../charts/TestChartsThree'
+import TestChartsFour from '../charts/TestChartsFour'
+import TestChartsFive from '../charts/TestChartsFive'
+//Nav menu
+import NavHorizontal from '../navs/HorizontalAlignment'
 
 export default {
     data () {
@@ -78,12 +82,15 @@ export default {
       }
     },
     components: {
+      //Charts Vue Charts 
         'chart-six': TestChartsSix,
         'chart': TestCharts,
         'chart-two': TestChartsTwo,
         'chart-three': TestChartsThree,
         'chart-four': TestChartsFour,
         'chart-five': TestChartsFive,
+      //Navs
+        'nav-horizontal': NavHorizontal,
     }
 }
 </script>

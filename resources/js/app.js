@@ -22,7 +22,12 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('top-component', require('./components/TopComponent.vue').default);
-Vue.component('dashboard-component', require('./components/DashboardComponent.vue').default);
+Vue.component('dashboard-component', require('./components/controlPanels/DashboardComponent.vue').default);
+
+Vue.component('page-component', require('./components/navs/Page.vue').default);
+Vue.component('basic-nav-component', require('./components/navs/HorizontalAlignment.vue').default);
+
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
