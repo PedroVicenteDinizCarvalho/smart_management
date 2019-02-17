@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-	<page size="12">
+	<page-nav-component size="12" title="Clientes">
 		<basic-nav-component title="clientes">
 			<li class="nav-item">
         		<a class="nav-link" href="#">Pedro</a>
@@ -13,5 +13,5 @@
         		<a class="nav-link" href="#">Pedro</a>
       		</li>
 		</basic-nav-component>
-	</page>
+	</page-nav-component>
 @endsection

@@ -2153,9 +2153,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 //Charts Vue Charts
 
 
@@ -2215,7 +2212,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['title', 'itens']
+  props: ['title']
 });
 
 /***/ }),
@@ -2240,8 +2237,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['size'],
+  props: ['size', 'title'],
   computed: {
     defineSize: function defineSize() {
       if (this.size >= 10) {
@@ -70328,57 +70327,46 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    [
-      _c("nav-horizontal", { attrs: { title: _vm.title, links: _vm.links } }),
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "col" },
+        [
+          _c("chart-six", {
+            attrs: { labels: _vm.labels, datasets: _vm.datasets }
+          })
+        ],
+        1
+      )
+    ]),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col" }, [_c("chart-five")], 1)
+    ]),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col" }, [_c("chart")], 1),
       _vm._v(" "),
-      _c("h1", [_vm._v("Gráficos")]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "div",
-          { staticClass: "col" },
-          [
-            _c("chart-six", {
-              attrs: { labels: _vm.labels, datasets: _vm.datasets }
-            })
-          ],
-          1
-        )
-      ]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col" }, [_c("chart-five")], 1)
-      ]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col" }, [_c("chart")], 1),
-        _vm._v(" "),
-        _c("div", { staticClass: "col" }, [_c("chart-two")], 1)
-      ]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col" }, [_c("chart-three")], 1)
-      ]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col" }, [_c("chart-four")], 1)
-      ])
-    ],
-    1
-  )
+      _c("div", { staticClass: "col" }, [_c("chart-two")], 1)
+    ]),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col" }, [_c("chart-three")], 1)
+    ]),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col" }, [_c("chart-four")], 1)
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -70446,7 +70434,20 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { class: _vm.defineTamanho }, [_vm._t("default")], 2)
+      _c(
+        "div",
+        { class: _vm.defineSize },
+        [
+          _c("h1", [_vm._v(_vm._s(_vm.title))]),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _vm._t("default"),
+          _vm._v(" "),
+          _c("hr")
+        ],
+        2
+      )
     ])
   ])
 }
@@ -82532,7 +82533,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue").default);
 Vue.component('top-component', __webpack_require__(/*! ./components/TopComponent.vue */ "./resources/js/components/TopComponent.vue").default);
 Vue.component('dashboard-component', __webpack_require__(/*! ./components/controlPanels/DashboardComponent.vue */ "./resources/js/components/controlPanels/DashboardComponent.vue").default);
-Vue.component('page-component', __webpack_require__(/*! ./components/navs/Page.vue */ "./resources/js/components/navs/Page.vue").default);
+Vue.component('page-nav-component', __webpack_require__(/*! ./components/navs/Page.vue */ "./resources/js/components/navs/Page.vue").default);
 Vue.component('basic-nav-component', __webpack_require__(/*! ./components/navs/HorizontalAlignment.vue */ "./resources/js/components/navs/HorizontalAlignment.vue").default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to

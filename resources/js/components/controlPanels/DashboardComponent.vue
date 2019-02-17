@@ -1,8 +1,5 @@
 <template>
   <div class="container">
-      <nav-horizontal :title="title" :links="links"></nav-horizontal>
-      <h1>Gráficos</h1>
-      <hr>
       
       <div class="row">
         <div class="col">
