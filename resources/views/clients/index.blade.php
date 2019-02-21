@@ -50,4 +50,10 @@
           <button type="button" class="btn btn-primary">Atualizar</button>
         </formulario>
     </modal-component>
+
+    <modal-component name="detail"
+      v-bind:title="$store.state.item.name">
+        <p>@{{$store.state.item.age}}</p>
+        <p>@{{$store.state.item.email}}</p>
+    </modal-component>
 @endsection
