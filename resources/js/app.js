@@ -23,9 +23,9 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('top-component', require('./components/TopComponent.vue').default);
 Vue.component('dashboard-component', require('./components/controlPanels/DashboardComponent.vue').default);
-
 Vue.component('page-nav-component', require('./components/navs/Page.vue').default);
 Vue.component('basic-nav-component', require('./components/navs/HorizontalAlignment.vue').default);
+Vue.component('minimalist-box-component', require('./components/boxes/MinimalistBoxes.vue').default);
 
 
 
