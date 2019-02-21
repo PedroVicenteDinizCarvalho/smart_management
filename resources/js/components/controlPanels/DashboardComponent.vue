@@ -55,8 +55,7 @@ import TestChartsTwo from '../charts/TestChartsTwo'
 import TestChartsThree from '../charts/TestChartsThree'
 import TestChartsFour from '../charts/TestChartsFour'
 import TestChartsFive from '../charts/TestChartsFive'
-//Nav menu
-import NavHorizontal from '../navs/HorizontalAlignment'
+
 
 export default {
     data () {
@@ -86,8 +85,6 @@ export default {
         'chart-three': TestChartsThree,
         'chart-four': TestChartsFour,
         'chart-five': TestChartsFive,
-      //Navs
-        'nav-horizontal': NavHorizontal,
     }
 }
 </script>

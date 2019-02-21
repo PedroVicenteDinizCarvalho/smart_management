@@ -14,7 +14,13 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        return view('clients/index');
+        $listLinks = json_encode([
+            ['title'=>'Home', 'url'=>route('home')],
+            ['title'=>'Clientes', 'url'=>""]
+        ]);
+
+
+        return view('clients/index', compact('listLinks'));
     }
 
     /**

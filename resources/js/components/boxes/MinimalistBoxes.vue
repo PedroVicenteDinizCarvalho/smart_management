@@ -1,18 +1,20 @@
 <template>
 	<div class="col-md-3 col-sm-6 col-xs-12">
 		<div class="info-box">
-		    <span v-bind:class="defineColorBox"><i v-bind:class="icon"></i></span>
-		    <div class="info-box-content">
-		      <span class="info-box-text">{{ title }}</span>
-		      <span class="info-box-number">{{ number }}<small>%</small></span>
-		   	</div>
-		    <!-- /.info-box-content -->
+			<a class="link" v-bind:href="url">
+				<span v-bind:class="defineColorBox"><i v-bind:class="icon"></i></span>
+			    <div class="info-box-content">
+			      <span class="info-box-text">{{ title }}</span>
+			      <span class="info-box-number">{{ number }}<small>%</small></span>
+			   	</div>
+			    <!-- /.info-box-content -->
+			</a>
 		</div>
 	</div>
 </template>
 <script>
 	export default{
-		props: ['icon', 'color', 'title', 'number'],
+		props: ['icon', 'color', 'title', 'number', 'url'],
 		computed: {
 			defineColorBox: function(){
 				return "info-box-icon "+ this.color; 
@@ -21,6 +23,9 @@
 	}
 </script>
 <style>
+a.link{
+	text-decoration: none;
+}
 .info-box {
     display: block;
     min-height: 90px;
@@ -38,6 +43,18 @@
 }
 .bg-dark {
 	background-color: #000 !important;
+	color: #fff !important;
+}
+.bg-green {
+	background-color: #28b329 !important;
+	color: #fff !important;
+}
+.bg-purple {
+	background-color: #8f23d8 !important;
+	color: #fff !important;
+}
+.bg-orange {
+	background-color: #ff4c1c !important;
 	color: #fff !important;
 }
 
