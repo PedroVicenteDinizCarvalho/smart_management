@@ -19,8 +19,11 @@ class ClientsController extends Controller
             ['title'=>'Clientes', 'url'=>""]
         ]);
 
+        $listItems = json_encode([
+            ['id'=>1, 'name'=>'João Polegrino', 'age'=>34, 'email'=>'joaoPe@gmail.com']
+        ]);
 
-        return view('clients/index', compact('listLinks'));
+        return view('clients/index', compact('listLinks', 'listItems'));
     }
 
     /**

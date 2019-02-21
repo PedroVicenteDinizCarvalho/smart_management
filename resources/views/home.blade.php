@@ -2,11 +2,9 @@
 
 @section('content')
 		<page-nav-component size="12" title="Dashboard">
-			<page-nav-component size="12" title="Clientes">
-				<breadcrumb-component 
-					v-bind:list="{{$listLinks}}">	
-				</breadcrumb-component>
-			</page-nav-component>
+			<breadcrumb-component 
+				v-bind:list="{{$listLinks}}">	
+			</breadcrumb-component>
 
 			<div class="row">
 				<minimalist-box-component 

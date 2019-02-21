@@ -9,6 +9,10 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import Vuex from 'Vuex';
+Vue.use(Vuex);
+
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -16,6 +20,18 @@ window.Vue = require('vue');
  *
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
+
+ //Vuex
+ const store = new Vuex.Store({
+ 	state: {
+ 		item:{}
+ 	},
+ 	mutations:{
+ 		setItem(state, obj){
+ 			state.item = obj;
+ 		}
+ 	}
+ });
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
@@ -26,7 +42,9 @@ Vue.component('dashboard-component', require('./components/controlPanels/Dashboa
 Vue.component('page-nav-component', require('./components/navs/Page.vue').default);
 Vue.component('breadcrumb-component', require('./components/navs/Breadcrumb.vue').default);
 Vue.component('minimalist-box-component', require('./components/boxes/MinimalistBoxes.vue').default);
-
+Vue.component('table-component', require('./components/tables/HoverableRows.vue').default);
+Vue.component('modal-link-component', require('./components/modals/ModalLink.vue').default);
+Vue.component('modal-component', require('./components/modals/Modal.vue').default);
 
 
 /**
@@ -36,5 +54,6 @@ Vue.component('minimalist-box-component', require('./components/boxes/Minimalist
  */
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    store
 });
