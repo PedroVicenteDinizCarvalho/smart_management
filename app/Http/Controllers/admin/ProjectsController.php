@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ProjectsController extends Controller
 {
@@ -13,7 +14,16 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        //
+        $listLinks = json_encode([
+            ['title'=>'Home', 'url'=>route('home')],
+            ['title'=>'Projetos', 'url'=>""]
+        ]);
+
+        $listItems = json_encode([
+            ['id'=>1, 'title'=>'Sistema ERP', 'type'=>'Software', 'client'=>'João Peregrino', 'price'=>100 ],
+        ]);
+
+        return view('projects/index', compact('listLinks', 'listItems'));
     }
 
     /**

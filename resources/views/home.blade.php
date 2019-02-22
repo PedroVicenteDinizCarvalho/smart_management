@@ -11,7 +11,7 @@
 					title="Clientes" number="30" icon="ion ion-person-stalker" color="bg-aqua" url="admin/clients">
 				</minimalist-box-component>
 				<minimalist-box-component
-					title="Projetos" number="30" icon="ion ion-soup-can" color="bg-green" url="">
+					title="Projetos" number="30" icon="ion ion-soup-can" color="bg-green" url="admin/projects">
 				</minimalist-box-component>
 				<minimalist-box-component 
 					title="Marketing" number="30" icon="ion ion-speakerphone" color="bg-purple" url="">
