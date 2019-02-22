@@ -18,7 +18,6 @@ class CreateClientsTable extends Migration
             $table->string('name');
             $table->integer('age');
             $table->string('email');
-            $table->dateTime('publicationDate');
             $table->timestamps();
         });
     }
