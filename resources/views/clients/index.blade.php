@@ -8,12 +8,12 @@
 	</page-nav-component>
 	<table-component 
 		v-bind:titles="['#', 'Nome', 'Idade', 'Email']"
-		v-bind:item="{{$listItems}}"
-		create="#create" detail="#detail" edit="#edit" remove="#remove" toke="1828238183" order="asc" colOrder="1" modal="yes">	
+		v-bind:items="{{$listItems}}"
+		create="#create" detail="#detail" edit="#edit" remove="#remove" toke="1828238183" order="asc" colorder="1" modal="yes">	
 	</table-component>
 
-	<modal-component name="create" title="Criar cliente">
-		<formulario css="" action="#" method="put" enctype="" token="">
+	<modal-component name="create" title="Criar Cliente">
+		    <form id="formCreate" css="" action="#" method="put" enctype="" token="">
           <div class="form-group">
             <label for="name">Nome:</label>
             <input type="text" class="form-control" id="name" placeholder="Nome do Cliente" name="name">
@@ -26,12 +26,14 @@
             <label for="email">Email:</label>
             <input type="text" class="form-control" id="email" placeholder="Email do Cliente" name="email">
           </div>
-          <button type="button" class="btn btn-primary">Salvar</button>
-        </formulario>
+        </form>
+        <span slot="buttons">
+          <button form="formCreate" type="button" class="btn btn-primary">Criar</button>
+        </span>
 	</modal-component>
 
 	<modal-component name="edit" title="Editar">
-        <formulario css="" action="#" method="put" enctype="" token="">
+        <form id="formEdit" css="" action="#" method="put" enctype="" token="">
           <div class="form-group">
             <label for="name">Nome:</label>
             <input type="text" class="form-control" id="name" placeholder="Nome do Cliente" name="name" 
@@ -47,8 +49,10 @@
             <input type="text" class="form-control" id="email" placeholder="Email do Cliente" name="email"
               v-model="$store.state.item.email">
           </div>
+        </form>
+        <span slot="buttons">
           <button type="button" class="btn btn-primary">Atualizar</button>
-        </formulario>
+        </span>
     </modal-component>
 
     <modal-component name="detail"

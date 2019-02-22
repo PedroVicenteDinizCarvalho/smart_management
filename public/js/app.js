@@ -3268,6 +3268,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['name', 'title']
 });
@@ -3546,12 +3551,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['titles', 'item', 'order', 'colOrder', 'create', 'detail', 'remove', 'edit', 'token', 'modal'],
+  props: ['titles', 'items', 'order', 'colorder', 'create', 'detail', 'remove', 'edit', 'token', 'modal'],
   data: function data() {
     return {
       search: '',
       auxOrder: this.order || 'asc',
-      auxColOrder: this.colOrder || 0
+      auxColOrder: this.colorder || 0
     };
   },
   methods: {
@@ -3573,29 +3578,29 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var order = this.auxOrder;
-      var colOrder = this.auxColOrder;
+      var colorder = this.auxColOrder;
       order = order.toLowerCase();
-      colOrder = parseInt(colOrder);
+      colorder = parseInt(colorder);
 
       if (order == "asc") {
-        this.item.sort(function (a, b) {
-          if (Object.values(a)[colOrder] > Object.values(b)[colOrder]) {
+        this.items.sort(function (a, b) {
+          if (Object.values(a)[colorder] > Object.values(b)[colorder]) {
             return 1;
           }
 
-          if (Object.values(a)[colOrder] < Object.values(b)[colOrder]) {
+          if (Object.values(a)[colorder] < Object.values(b)[colorder]) {
             return -1;
           }
 
           return 0;
         });
       } else {
-        this.item.sort(function (a, b) {
-          if (Object.values(a)[colOrder] < Object.values(b)[colOrder]) {
+        this.items.sort(function (a, b) {
+          if (Object.values(a)[colorder] < Object.values(b)[colorder]) {
             return 1;
           }
 
-          if (Object.values(a)[colOrder] > Object.values(b)[colOrder]) {
+          if (Object.values(a)[colorder] > Object.values(b)[colorder]) {
             return -1;
           }
 
@@ -3604,9 +3609,11 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       if (this.search) {
-        return this.item.filter(function (res) {
+        return this.items.filter(function (res) {
+          res = Object.values(res);
+
           for (var k = 0; k < res.length; k++) {
-            if ((res[k] + "").toLowerCase().indexOf(_this.buscar.toLowerCase()) >= 0) {
+            if ((res[k] + "").toLowerCase().indexOf(_this.search.toLowerCase()) >= 0) {
               return true;
             }
           }
@@ -3615,7 +3622,7 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
 
-      return this.item;
+      return this.items;
     }
   }
 });
@@ -72456,19 +72463,32 @@ var render = function() {
       _c("div", { staticClass: "modal-dialog", attrs: { role: "document" } }, [
         _c("div", { staticClass: "modal-content" }, [
           _c("div", { staticClass: "modal-header" }, [
-            _c(
-              "h5",
-              {
-                staticClass: "modal-title",
-                attrs: { id: "exampleModalLabel" }
-              },
-              [_vm._v(_vm._s(_vm.title))]
-            ),
+            _c("h5", { staticClass: "modal-title" }, [
+              _vm._v(_vm._s(_vm.title))
+            ]),
             _vm._v(" "),
             _vm._m(0)
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "modal-body" }, [_vm._t("default")], 2)
+          _c("div", { staticClass: "modal-body" }, [_vm._t("default")], 2),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "modal-footer" },
+            [
+              _vm._t("buttons"),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-dismiss": "modal" }
+                },
+                [_vm._v("Close")]
+              )
+            ],
+            2
+          )
         ])
       ])
     ]

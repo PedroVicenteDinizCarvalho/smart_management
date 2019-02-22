@@ -118,13 +118,13 @@
 </template>
 <script>
 	export default {
-		props: ['titles', 'item', 'order', 'colOrder', 'create', 'detail', 'remove',  'edit','token', 'modal'],
+		props: ['titles', 'items', 'order', 'colorder', 'create', 'detail', 'remove',  'edit','token', 'modal'],
 
 		data: function(){
 			return{
 				search: '',
 				auxOrder: this.order || 'asc',
-				auxColOrder: this.colOrder || 0,
+				auxColOrder: this.colorder || 0,
 			}
 		},
 
@@ -145,29 +145,30 @@
 		computed:{
 			list: function(){
 				let order = this.auxOrder;
-				let colOrder = this.auxColOrder;
+				let colorder = this.auxColOrder;
 				order = order.toLowerCase();
-				colOrder = parseInt(colOrder);
+				colorder = parseInt(colorder);
 
 				if(order == "asc"){
-					this.item.sort(function (a, b){
-						if (Object.values(a)[colOrder] > Object.values(b)[colOrder] ) { return 1; }
-						if (Object.values(a)[colOrder] < Object.values(b)[
-							colOrder] ) { return -1; }
+					this.items.sort(function (a, b){
+						if (Object.values(a)[colorder] > Object.values(b)[colorder] ) { return 1; }
+						if (Object.values(a)[colorder] < Object.values(b)[
+							colorder] ) { return -1; }
 						return 0;
 					});
 				}else{
-					this.item.sort(function(a, b){
-                        if (Object.values(a)[colOrder] < Object.values(b)[colOrder] ) { return 1; }
-                        if (Object.values(a)[colOrder] > Object.values(b)[colOrder] ) { return -1; }
+					this.items.sort(function(a, b){
+                        if (Object.values(a)[colorder] < Object.values(b)[colorder] ) { return 1; }
+                        if (Object.values(a)[colorder] > Object.values(b)[colorder] ) { return -1; }
                         return 0;
                     });	
 				}
 
 				if(this.search){
-	                return this.item.filter(res => {
+	                return this.items.filter(res => {
+                        res = Object.values(res);
 	                      for(let k = 0; k < res.length; k++){
-	                           if((res[k] + "").toLowerCase().indexOf(this.buscar.toLowerCase()) >= 0){
+	                           if((res[k] + "").toLowerCase().indexOf(this.search.toLowerCase()) >= 0){
 	                                return true;
 	                           }  
 	                      }
@@ -175,7 +176,7 @@
 	                });
                 }
 
-                return this.item;
+                return this.items;
 			},
 		}
 	}
