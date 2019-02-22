@@ -1,24 +1,6 @@
 <template>
   <div class="container">
-      
-      <div class="row">
-        <div class="col">
-          <chart-six
-            :labels="labels"
-            :datasets="datasets">
-          </chart-six>
-        </div>
-      </div>
 
-      <hr>
-
-      <div class="row">
-        <div class="col">
-          <chart-five></chart-five>
-        </div>
-      </div>
-
-      <hr>
       <div class="row">
         <div class="col">
           <chart></chart>

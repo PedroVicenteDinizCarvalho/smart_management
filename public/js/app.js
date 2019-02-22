@@ -3187,24 +3187,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //Charts Vue Charts
 
 
@@ -72386,27 +72368,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row" }, [
-      _c(
-        "div",
-        { staticClass: "col" },
-        [
-          _c("chart-six", {
-            attrs: { labels: _vm.labels, datasets: _vm.datasets }
-          })
-        ],
-        1
-      )
-    ]),
-    _vm._v(" "),
-    _c("hr"),
-    _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col" }, [_c("chart-five")], 1)
-    ]),
-    _vm._v(" "),
-    _c("hr"),
-    _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col" }, [_c("chart")], 1),
       _vm._v(" "),
       _c("div", { staticClass: "col" }, [_c("chart-two")], 1)
@@ -85173,7 +85134,8 @@ Vue.component('breadcrumb-component', __webpack_require__(/*! ./components/navs/
 Vue.component('minimalist-box-component', __webpack_require__(/*! ./components/boxes/MinimalistBoxes.vue */ "./resources/js/components/boxes/MinimalistBoxes.vue").default);
 Vue.component('table-component', __webpack_require__(/*! ./components/tables/HoverableRows.vue */ "./resources/js/components/tables/HoverableRows.vue").default);
 Vue.component('modal-link-component', __webpack_require__(/*! ./components/modals/ModalLink.vue */ "./resources/js/components/modals/ModalLink.vue").default);
-Vue.component('modal-component', __webpack_require__(/*! ./components/modals/Modal.vue */ "./resources/js/components/modals/Modal.vue").default);
+Vue.component('modal-component', __webpack_require__(/*! ./components/modals/Modal.vue */ "./resources/js/components/modals/Modal.vue").default); //Vue.component('preloader-component', require('./components/preloader/Preloader.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -85182,7 +85144,10 @@ Vue.component('modal-component', __webpack_require__(/*! ./components/modals/Mod
 
 var app = new Vue({
   el: '#app',
-  store: store
+  store: store,
+  mounted: function mounted() {
+    document.getElementById('app').style.display = "block";
+  }
 });
 
 /***/ }),

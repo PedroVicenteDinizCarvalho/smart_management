@@ -40,7 +40,7 @@
                             v-if="edit && modal"
                             v-bind:item="item" 
                             type="link" name="edit" title="Editar" css="">
-						</modal-link-component>
+						            </modal-link-component>
                   
                   	<!-- Button Detail -->
                        	<a 

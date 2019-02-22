@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Project;
 class ProjectsController extends Controller
 {
     /**
@@ -19,9 +20,7 @@ class ProjectsController extends Controller
             ['title'=>'Projetos', 'url'=>""]
         ]);
 
-        $listItems = json_encode([
-            ['id'=>1, 'title'=>'Sistema ERP', 'type'=>'Software', 'client'=>'João Peregrino', 'price'=>100 ],
-        ]);
+        $listItems = json_encode(Project::select('id', 'title', 'type', 'client', 'price', 'publicationDate')->get());
 
         return view('projects/index', compact('listLinks', 'listItems'));
     }
@@ -44,7 +43,11 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        $data = $request->all();
+        Project::create($data);
+
+        return redirect()->back();
     }
 
     /**

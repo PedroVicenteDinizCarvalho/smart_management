@@ -22,7 +22,4 @@
 			</div>
 
 		</page-nav-component>
-        <dashboard-component>
-        	
-        </dashboard-component> 
 @endsection

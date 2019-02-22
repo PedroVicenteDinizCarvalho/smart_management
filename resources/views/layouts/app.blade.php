@@ -21,7 +21,7 @@
     
 </head>
 <body>
-    <div id="app">
+    <div id="app" style="display: none;">
         <top-component titulo="{{ config('app.name', 'Laravel') }}" url="{{ url('/') }}">
             <!-- Authentication Links -->
             @guest

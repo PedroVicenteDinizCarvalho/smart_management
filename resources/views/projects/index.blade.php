@@ -7,16 +7,17 @@
     	</breadcrumb-component>
 	</page-nav-component>
 	<table-component 
-		v-bind:titles="['#', 'Nome', 'Tipo', 'Cliente', 'Valor']"
+		v-bind:titles="['#', 'Nome', 'Tipo', 'Cliente', 'Valor', 'Data']"
 		v-bind:items="{{$listItems}}"
-		create="#create" detail="#detail" edit="#edit" remove="#remove" toke="1828238183" order="asc" colorder="1" modal="yes">	
+		create="#create" detail="#detail" edit="#edit" remove="#remove" token="{{ csrf_token() }}" order="asc" colorder="1" modal="yes">	
 	</table-component>
 
 	<modal-component name="create" title="Criar Projeto">
-		    <form id="formCreate" css="" action="#" method="put" enctype="" token="">
+		    <form id="formCreate" css="" action="{{route('projects.store')}}" method="post" enctype="">
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <div class="form-group">
             <label for="name">Nome:</label>
-            <input type="text" class="form-control" id="name" placeholder="Nome do Projeto" name="name">
+            <input type="text" class="form-control" id="name" placeholder="Nome do Projeto" name="title">
           </div>
           <div class="form-group">
             <label for="type">Tipo:</label>
@@ -30,9 +31,13 @@
             <label for="price">Preço:</label>
             <input type="text" class="form-control" id="price" placeholder="Preço do Projeto" name="price">
           </div>
+          <div class="form-group">
+            <label for="publicationDate">Data do Projeto:</label>
+            <input type="datetime-local" class="form-control" id="publicationDate" placeholder="Data do Projeto" name="publicationDate">
+          </div>
         </form>
         <span slot="buttons">
-          <button form="formCreate" type="button" class="btn btn-primary">Criar</button>
+          <button form="formCreate" type="submit" class="btn btn-primary">Criar</button>
         </span>
 	</modal-component>
 
