@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Client;
 class ClientsController extends Controller
 {
     /**
@@ -19,11 +20,7 @@ class ClientsController extends Controller
             ['title'=>'Clientes', 'url'=>""]
         ]);
 
-        $listItems = json_encode([
-            ['id'=>1, 'name'=>'João Polegrino', 'age'=>34, 'email'=>'joaoPe@gmail.com'],
-            ['id'=>2, 'name'=>'Malu Duarte', 'age'=>42, 'email'=>'malu@gmail.com'],
-
-        ]);
+        $listItems = json_encode(Client::select('id', 'name', 'age', 'email')->get());
 
         return view('clients/index', compact('listLinks', 'listItems'));
     }
@@ -46,7 +43,10 @@ class ClientsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        Client::create($data);
+
+        return redirect()->back();
     }
 
     /**

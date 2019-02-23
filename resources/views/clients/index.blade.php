@@ -13,7 +13,8 @@
 	</table-component>
 
 	<modal-component name="create" title="Criar Cliente">
-		    <form id="formCreate" css="" action="#" method="put" enctype="" token="">
+		    <form id="formCreate" css="" action="{{route('clients.store')}}" method="post" enctype="">
+          <input type="hidden" name="_token" value="{{csrf_token() }}">
           <div class="form-group">
             <label for="name">Nome:</label>
             <input type="text" class="form-control" id="name" placeholder="Nome do Cliente" name="name">
@@ -28,7 +29,7 @@
           </div>
         </form>
         <span slot="buttons">
-          <button form="formCreate" type="button" class="btn btn-primary">Criar</button>
+          <button form="formCreate" type="submit" class="btn btn-primary">Criar</button>
         </span>
 	</modal-component>
 
