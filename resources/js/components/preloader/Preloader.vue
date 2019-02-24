@@ -1,14 +1,9 @@
 <template>
-	<svg width="200" height="200" viewBox="0 0 40 60" id="svg"> 
-		<polygon class="triangle" fill="none" stroke="#fff" stroke-width="1" points="16,1 32,32 1,32" />
-		<text class="loading" x="0" y="45" fill="#fff">Loading...</text>
-	</svg>
+	
 </template>
 <script>
 	export default {
-		mounted: function(){
-    		document.getElementById('svg').style.display = "none";
-    	}
+
 	}
 </script>
 <style>

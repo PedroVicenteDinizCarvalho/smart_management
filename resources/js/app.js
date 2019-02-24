@@ -45,7 +45,7 @@ Vue.component('minimalist-box-component', require('./components/boxes/Minimalist
 Vue.component('table-component', require('./components/tables/HoverableRows.vue').default);
 Vue.component('modal-link-component', require('./components/modals/ModalLink.vue').default);
 Vue.component('modal-component', require('./components/modals/Modal.vue').default);
-//Vue.component('preloader-component', require('./components/preloader/Preloader.vue').default);
+Vue.component('preloader-component', require('./components/preloader/Preloader.vue').default);
 
 
 /**
@@ -59,5 +59,6 @@ const app = new Vue({
     store,
     mounted: function(){
     	document.getElementById('app').style.display = "block";
+    	document.getElementById('preloader').style.display = "none";
     }
 });
