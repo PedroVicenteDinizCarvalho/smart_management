@@ -43,8 +43,19 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
         $data = $request->all();
+        $validator = \Validator::make($data, [ 
+            "title" => "required",
+            "type" => "required",
+            "client" => "required",
+            "price" => "required",
+            "publicationDate" => "required"
+        ]);
+
+        if($validator->fails()){
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        //dd($request->all());
         Project::create($data);
 
         return redirect()->back();
