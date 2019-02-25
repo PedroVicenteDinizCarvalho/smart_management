@@ -2,6 +2,16 @@
 
 @section('content')
 	<page-nav-component size="12" title="Clientes">
+    @if($errors->all())
+      @foreach ($errors->all() as $key => $value)
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{$value}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+      @endforeach
+    @endif
 		<breadcrumb-component 
       		v-bind:list="{{$listLinks}}">
     	</breadcrumb-component>

@@ -44,6 +44,16 @@ class ClientsController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        $validator = \Validator::make($data, [
+            "name" => "required",
+            "age"  => "required",
+            "email" => "required"
+        ]);
+
+        if($validator->fails()){
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         Client::create($data);
 
         return redirect()->back();
