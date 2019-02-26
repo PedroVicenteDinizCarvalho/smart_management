@@ -67,7 +67,7 @@ class ClientsController extends Controller
      */
     public function show($id)
     {
-        //
+        return Client::find($id);
     }
 
     /**

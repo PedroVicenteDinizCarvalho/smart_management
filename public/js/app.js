@@ -3320,10 +3320,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['type', 'name', 'title', 'css', 'item'],
+  props: ['type', 'name', 'title', 'css', 'item', 'url'],
   methods: {
     filForm: function filForm() {
-      this.$store.commit('setItem', this.item);
+      var _this = this;
+
+      axios.get(this.url + this.item.id).then(function (res) {
+        console.log(res.data);
+
+        _this.$store.commit('setItem', res.data);
+      }); //this.$store.commit('setItem', this.item);
     }
   }
 });
@@ -3430,6 +3436,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -72967,6 +72976,7 @@ var render = function() {
                               ? _c("modal-link-component", {
                                   attrs: {
                                     item: item,
+                                    url: _vm.detail,
                                     type: "link",
                                     name: "detail",
                                     title: "Detalhe",
@@ -73027,6 +73037,7 @@ var render = function() {
                               ? _c("modal-link-component", {
                                   attrs: {
                                     item: item,
+                                    url: _vm.detail,
                                     type: "link",
                                     name: "detail",
                                     title: "Detalhe",
@@ -73077,6 +73088,7 @@ var render = function() {
                               ? _c("modal-link-component", {
                                   attrs: {
                                     item: item,
+                                    url: _vm.detail,
                                     type: "link",
                                     name: "detail",
                                     title: "Detalhe",

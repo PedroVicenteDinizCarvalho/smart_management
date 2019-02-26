@@ -48,7 +48,8 @@
                        		v-bind:href="detail">Detalhe</a>
                        	<modal-link-component 
                             v-if="detail && modal" 
-                            v-bind:item="item" 
+                            v-bind:item="item"
+                            v-bind:url="detail" 
                             type="link" name="detail" title="Detalhe" css="">
                         </modal-link-component>
                   
@@ -76,7 +77,8 @@
                        </a>
                        <modal-link-component 
                             v-if="detail && modal"
-                            v-bind:item="item" 
+                            v-bind:item="item"
+                            v-bind:url="detail" 
                             type="link" name="detail" title="Detalhe" css="">
                        </modal-link-component>
                   
@@ -107,6 +109,7 @@
                        <modal-link-component 
                             v-if="detail && modal" 
                             v-bind:item="item" 
+                            v-bind:url="detail"
                             type="link" name="detail" title="Detalhe" css="">
                        </modal-link-component>
                 </span>

@@ -19,7 +19,7 @@
 	<table-component 
 		v-bind:titles="['#', 'Nome', 'Tipo', 'Cliente', 'Valor', 'Data']"
 		v-bind:items="{{$listItems}}"
-		create="#create" detail="#detail" edit="#edit" remove="#remove" token="{{ csrf_token() }}" order="asc" colorder="1" modal="yes">	
+		create="#create" detail="/admin/projects/" edit="#edit" remove="#remove" token="{{ csrf_token() }}" order="asc" colorder="1" modal="yes">	
 	</table-component>
 
 	<modal-component name="create" title="Criar Projeto">
@@ -76,9 +76,10 @@
     </modal-component>
 
     <modal-component name="detail"
-      v-bind:title="$store.state.item.name">
+      v-bind:title="$store.state.item.title">
         <p>@{{$store.state.item.type}}</p>
         <p>@{{$store.state.item.client}}</p>
         <p>@{{$store.state.item.price}}</p>
+        <p>@{{$store.state.item.publicationDate}}</p>
     </modal-component>
 @endsection

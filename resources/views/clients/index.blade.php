@@ -19,7 +19,7 @@
 	<table-component 
 		v-bind:titles="['#', 'Nome', 'Idade', 'Email']"
 		v-bind:items="{{$listItems}}"
-		create="#create" detail="#detail" edit="#edit" remove="#remove" toke="1828238183" order="asc" colorder="1" modal="yes">	
+		create="#create" detail="/admin/clients/" edit="#edit" remove="#remove" toke="1828238183" order="asc" colorder="1" modal="yes">	
 	</table-component>
 
 	<modal-component name="create" title="Criar Cliente">
@@ -68,6 +68,7 @@
 
     <modal-component name="detail"
       v-bind:title="$store.state.item.name">
+        <p>@{{$store.state.item.id}}</p>
         <p>@{{$store.state.item.age}}</p>
         <p>@{{$store.state.item.email}}</p>
     </modal-component>
