@@ -92,7 +92,22 @@ class ProjectsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $validator = \Validator::make($data, [ 
+            "title" => "required",
+            "type" => "required",
+            "client" => "required",
+            "price" => "required",
+            "publicationDate" => "required"
+        ]);
+
+        if($validator->fails()){
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        //dd($request->all());
+        Project::find($id)->update($data);
+
+        return redirect()->back();
     }
 
     /**

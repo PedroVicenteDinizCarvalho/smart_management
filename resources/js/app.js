@@ -46,7 +46,7 @@ Vue.component('table-component', require('./components/tables/HoverableRows.vue'
 Vue.component('modal-link-component', require('./components/modals/ModalLink.vue').default);
 Vue.component('modal-component', require('./components/modals/Modal.vue').default);
 Vue.component('preloader-component', require('./components/preloader/Preloader.vue').default);
-
+Vue.component('form-component', require('./components/forms/Form.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -23,8 +23,7 @@
 	</table-component>
 
 	<modal-component name="create" title="Criar Cliente">
-		    <form id="formCreate" css="" action="{{route('clients.store')}}" method="post" enctype="">
-          <input type="hidden" name="_token" value="{{csrf_token() }}">
+		    <form-component id="formCreate" css="" action="{{route('clients.store')}}" method="post" enctype="" token="{{csrf_token() }}">
           <div class="form-group">
             <label for="name">Nome:</label>
             <input type="text" class="form-control" id="name" placeholder="Nome do Cliente" name="name">
@@ -37,14 +36,14 @@
             <label for="email">Email:</label>
             <input type="text" class="form-control" id="email" placeholder="Email do Cliente" name="email">
           </div>
-        </form>
+        </form-component>
         <span slot="buttons">
           <button form="formCreate" type="submit" class="btn btn-primary">Criar</button>
         </span>
 	</modal-component>
 
 	<modal-component name="edit" title="Editar">
-        <form id="formEdit" css="" action="#" method="put" enctype="" token="">
+        <form-component id="formEdit" css="" action="'admin/clients/' + $store.state.item.id" method="put" enctype="" token="{{csrf_token() }}">
           <div class="form-group">
             <label for="name">Nome:</label>
             <input type="text" class="form-control" id="name" placeholder="Nome do Cliente" name="name" 
@@ -60,7 +59,7 @@
             <input type="text" class="form-control" id="email" placeholder="Email do Cliente" name="email"
               v-model="$store.state.item.email">
           </div>
-        </form>
+        </form-component>
         <span slot="buttons">
           <button type="button" class="btn btn-primary">Atualizar</button>
         </span>

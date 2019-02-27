@@ -27,7 +27,7 @@
 		  <tbody>
 		    <tr v-for="(item, index) in list">
 		      <td v-for="i in item">{{ i }}</td>
-		      <td v-if="detail || edit || remove">
+		  <td v-if="detail || edit || remove">
 				<form v-bind:id="index" v-if="remove && token" v-bind:action="remove" method="post">
 					<input type="hidden" name="_method" value="DELETE">
 					<input type="hidden" name="_token" v-bind:value="token">
@@ -38,7 +38,8 @@
                        		v-bind:href="edit">Editar</a>
                        	<modal-link-component 
                             v-if="edit && modal"
-                            v-bind:item="item" 
+                            v-bind:item="item"
+                            v-bind:url="edit" 
                             type="link" name="edit" title="Editar" css="">
 						            </modal-link-component>
                   
@@ -65,7 +66,8 @@
                        </a>
                        <modal-link-component 
                             v-if="edit && modal"
-                            v-bind:item="item" 
+                            v-bind:item="item"
+                            v-bind:url="edit" 
                             type="link" name="edit" title="Editar" css="">
                        </modal-link-component>
                   
@@ -98,6 +100,7 @@
                        <modal-link-component 
                             v-if="edit && modal" 
                             v-bind:item="item"
+                            v-bind:url="edit"
                             type="link" name="edit" title="Editar" css="">
                        </modal-link-component>
                   
