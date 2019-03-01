@@ -3187,6 +3187,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //Charts Vue Charts
 
 
@@ -3617,7 +3626,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     runForm: function runForm(index) {
-      document.getElementById('id').submit();
+      document.getElementById(index).submit();
     },
     columnOrder: function columnOrder(col) {
       this.auxColOrder == col;
@@ -72490,6 +72499,16 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
+    _c("h1", [_vm._v("Gráficos")]),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col" }, [_c("chart-five")], 1)
+    ]),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col" }, [_c("chart")], 1),
       _vm._v(" "),
@@ -73026,7 +73045,7 @@ var render = function() {
                           {
                             attrs: {
                               id: index,
-                              action: _vm.remove,
+                              action: _vm.remove + item.id,
                               method: "post"
                             }
                           },
@@ -73090,7 +73109,6 @@ var render = function() {
                             _c(
                               "a",
                               {
-                                staticClass: "btn btn-outline-danger",
                                 attrs: { href: "#" },
                                 on: {
                                   click: function($event) {

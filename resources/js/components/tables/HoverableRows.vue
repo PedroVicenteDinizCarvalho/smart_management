@@ -28,7 +28,7 @@
 		    <tr v-for="(item, index) in list">
 		      <td v-for="i in item">{{ i }}</td>
 		  <td v-if="detail || edit || remove">
-				<form v-bind:id="index" v-if="remove && token" v-bind:action="remove" method="post">
+				<form v-bind:id="index" v-if="remove && token" v-bind:action="remove + item.id" method="post">
 					<input type="hidden" name="_method" value="DELETE">
 					<input type="hidden" name="_token" v-bind:value="token">
 
@@ -55,7 +55,7 @@
                         </modal-link-component>
                   
                   	<!-- Button Delete -->
-                       	<a class="btn btn-outline-danger" href="#" v-on:click="runForm(index)">Deletar</a>
+                       	<a href="#" v-on:click="runForm(index)">Deletar</a>
 				</form>
 
 				<span v-if="!token">
@@ -136,8 +136,9 @@
 
 		methods: {
 			runForm: function(index){
-				document.getElementById('id').submit();
+				document.getElementById(index).submit();
 			},
+
 			columnOrder:function(col){
 				this.auxColOrder == col;
 				if(this.auxOrder == "asc"){

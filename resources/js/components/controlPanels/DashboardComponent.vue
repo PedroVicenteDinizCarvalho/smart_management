@@ -1,6 +1,15 @@
 <template>
   <div class="container">
+      <h1>Gráficos</h1>
+      <hr>
 
+      <div class="row">
+        <div class="col">
+          <chart-five></chart-five>
+        </div>
+      </div>
+
+      <hr>
       <div class="row">
         <div class="col">
           <chart></chart>

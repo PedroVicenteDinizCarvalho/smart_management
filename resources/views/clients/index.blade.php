@@ -16,14 +16,15 @@
       		v-bind:list="{{$listLinks}}">
     	</breadcrumb-component>
 	</page-nav-component>
+
 	<table-component 
 		v-bind:titles="['#', 'Nome', 'Idade', 'Email']"
 		v-bind:items="{{$listItems}}"
-		create="#create" detail="/admin/clients/" edit="/admin/clients/" remove="#remove" token="1828238183" order="asc" colorder="1" modal="yes">	
+		create="#create" detail="/admin/clients/" edit="/admin/clients/" remove="/admin/clients/" token="{{ csrf_token() }}" order="asc" colorder="1" modal="yes">	
 	</table-component>
 
 	<modal-component name="create" title="Criar Cliente">
-		    <form-component id="formCreate" css="" action="{{route('clients.store')}}" method="post" enctype="" token="{{csrf_token() }}">
+		    <form-component id="formCreate" css="" action="{{route('clients.store')}}" method="post" enctype="" token="{{ csrf_token() }}">
           <div class="form-group">
             <label for="name">Nome:</label>
             <input type="text" class="form-control" id="name" placeholder="Nome do Cliente" name="name">

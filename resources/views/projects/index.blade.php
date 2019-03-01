@@ -16,10 +16,11 @@
       		v-bind:list="{{$listLinks}}">
     </breadcrumb-component>
 	</page-nav-component>
+
 	<table-component 
 		v-bind:titles="['#', 'Nome', 'Tipo', 'Cliente', 'Valor', 'Data']"
 		v-bind:items="{{$listItems}}"
-		create="#create" detail="/admin/projects/" edit="/admin/projects/" remove="#remove" token="77575" order="asc" colorder="1" modal="yes">	
+		create="#create" detail="/admin/projects/" edit="/admin/projects/" remove="/admin/projects/" token="{{ csrf_token() }}" order="asc" colorder="1" modal="yes">	
 	</table-component>
 
 	<modal-component name="create" title="Criar Projeto">
