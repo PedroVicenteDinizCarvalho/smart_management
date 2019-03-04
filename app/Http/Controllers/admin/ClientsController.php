@@ -20,7 +20,7 @@ class ClientsController extends Controller
             ['title'=>'Clientes', 'url'=>""]
         ]);
 
-        $listItems = json_encode(Client::select('id', 'name', 'age', 'email')->get());
+        $listItems = Client::select('id', 'name', 'age', 'email')->paginate(2);
 
         return view('clients/index', compact('listLinks', 'listItems'));
     }

@@ -19,8 +19,11 @@
 
 	<table-component 
 		v-bind:titles="['#', 'Nome', 'Idade', 'Email']"
-		v-bind:items="{{$listItems}}"
-		create="#create" detail="/admin/clients/" edit="/admin/clients/" remove="/admin/clients/" token="{{ csrf_token() }}" order="asc" colorder="1" modal="yes">	
+		v-bind:items="{{ json_encode($listItems)}}"
+		create="#create" detail="/admin/clients/" edit="/admin/clients/" remove="/admin/clients/" token="{{ csrf_token() }}" order="asc" colorder="1" modal="yes">
+    <div align="center">
+      {{ $listItems->links() }}
+    </div>
 	</table-component>
 
 	<modal-component name="create" title="Criar Cliente">
@@ -55,7 +58,7 @@
             <input type="number" class="form-control" id="age" placeholder="Idade do Cliente" name="age"
               v-model="$store.state.item.age">
           </div>
-		  <div class="form-group">
+		      <div class="form-group">
             <label for="email">Email:</label>
             <input type="text" class="form-control" id="email" placeholder="Email do Cliente" name="email"
               v-model="$store.state.item.email">

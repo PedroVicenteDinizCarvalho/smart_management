@@ -19,8 +19,11 @@
 
 	<table-component 
 		v-bind:titles="['#', 'Nome', 'Tipo', 'Cliente', 'Valor', 'Data']"
-		v-bind:items="{{$listItems}}"
+		v-bind:items="{{ json_encode($listItems)}}"
 		create="#create" detail="/admin/projects/" edit="/admin/projects/" remove="/admin/projects/" token="{{ csrf_token() }}" order="asc" colorder="1" modal="yes">	
+    <div align="center">
+      {{ $listItems->links() }}
+    </div>
 	</table-component>
 
 	<modal-component name="create" title="Criar Projeto">

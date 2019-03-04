@@ -20,7 +20,7 @@ class ProjectsController extends Controller
             ['title'=>'Projetos', 'url'=>""]
         ]);
 
-        $listItems = json_encode(Project::select('id', 'title', 'type', 'client', 'price', 'publicationDate')->get());
+        $listItems = Project::select('id', 'title', 'type', 'client', 'price', 'publicationDate')->paginate(2);
 
         return view('projects/index', compact('listLinks', 'listItems'));
     }
