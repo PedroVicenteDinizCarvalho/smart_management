@@ -17,9 +17,12 @@ class CreateProjectsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('type');
+            $table->text('description');
             $table->string('client');
             $table->decimal('price', 8, 2);
-            $table->dateTime('publicationDate');
+            $table->dateTime('deadline');
+            $table->integer('installments');
+            $table->integer('paidOut');
             $table->timestamps();
             $table->softDeletes();
         });

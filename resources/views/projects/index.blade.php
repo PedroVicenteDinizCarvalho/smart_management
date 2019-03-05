@@ -29,12 +29,16 @@
 	<modal-component name="create" title="Criar Projeto">
 		    <form-component id="formCreate" css="" action="{{route('projects.store')}}" method="post" enctype="" token="{{ csrf_token() }}">
           <div class="form-group">
-            <label for="name">Nome:</label>
-            <input type="text" class="form-control" id="name" placeholder="Nome do Projeto" name="title" value="{{old('title')}}">
+            <label for="title">Titulo:</label>
+            <input type="text" class="form-control" id="title" placeholder="Titulo do Projeto" name="title" value="{{old('title')}}">
           </div>
           <div class="form-group">
             <label for="type">Tipo:</label>
             <input type="text" class="form-control" id="type" placeholder="Tipo de Projeto" name="type" value="{{old('type')}}">
+          </div>
+          <div class="form-group">
+            <label for="description">Descrição:</label>
+            <textarea name="description" id="description" cols="30" rows="10">{{old('description')}}</textarea>
           </div>
           <div class="form-group">
             <label for="client">Cliente:</label>
@@ -45,8 +49,16 @@
             <input type="text" class="form-control" id="price" placeholder="Preço do Projeto" name="price" value="{{old('price')}}">
           </div>
           <div class="form-group">
-            <label for="publicationDate">Data do Projeto:</label>
-            <input type="datetime-local" class="form-control" id="publicationDate" placeholder="Data do Projeto" name="publicationDate" value="{{old('publicationDate')}}">
+            <label for="deadline">Data de Entrega:</label>
+            <input type="datetime-local" class="form-control" id="deadline" placeholder="Data limite do projeto" name="deadline" value="{{old('deadline')}}">
+          </div>
+          <div class="form-group">
+            <label for="installments">Parcelas:</label>
+            <input type="number" class="form-control" id="installments" placeholder="Parcelas de pagamento" name="installments" value="{{old('installments')}}">
+          </div>
+          <div class="form-group">
+            <label for="paidOut">Entrada:</label>
+            <input type="number" class="form-control" id="paidOut" placeholder="Data limite do projeto" name="paidOut" value="{{old('paidOut')}}">
           </div>
         </form-component>
         <span slot="buttons">
@@ -57,12 +69,16 @@
 	<modal-component name="edit" title="Editar Projeto">
         <form-component id="formEdit" css="" v-bind:action="'/admin/projects/' + $store.state.item.id" method="put" token="{{ csrf_token() }}">
           <div class="form-group">
-            <label for="name">Nome:</label>
-            <input type="text" class="form-control" id="name" placeholder="Nome do Projeto" name="title" v-model="$store.state.item.title">
+            <label for="title">Titulo:</label>
+            <input type="text" class="form-control" id="title" placeholder="Nome do Projeto" name="title" v-model="$store.state.item.title">
           </div>
           <div class="form-group">
             <label for="type">Tipo:</label>
             <input type="text" class="form-control" id="type" placeholder="Tipo de Projeto" name="type" v-model="$store.state.item.type">
+          </div>
+          <div class="form-group">
+            <label for="description">Descrição:</label>
+            <input type="text" class="form-control" id="description" placeholder="Cliente" name="description" v-model="$store.state.item.description">
           </div>
           <div class="form-group">
             <label for="client">Cliente:</label>
@@ -73,8 +89,16 @@
             <input type="text" class="form-control" id="price" placeholder="Preço do Projeto" name="price" v-model="$store.state.item.price">
           </div>
           <div class="form-group">
-            <label for="publicationDate">Data do Projeto:</label>
-            <input type="datetime-local" class="form-control" id="publicationDate" placeholder="Data do Projeto" name="publicationDate" v-model="$store.state.item.publicationDate">
+            <label for="deadline">Data de Entrega:</label>
+            <input type="datetime-local" class="form-control" id="deadline" placeholder="Data do Projeto" name="deadline" v-model="$store.state.item.deadline">
+          </div>
+          <div class="form-group">
+            <label for="installments">Parcelas:</label>
+            <input type="text" class="form-control" id="installments" placeholder="Preço do Projeto" name="installments" v-model="$store.state.item.installments">
+          </div>
+          <div class="form-group">
+            <label for="paidOut">Entrada:</label>
+            <input type="text" class="form-control" id="paidOut" placeholder="Preço do Projeto" name="paidOut" v-model="$store.state.item.paidOut">
           </div>
         </form-component>
         <span slot="buttons">
@@ -84,9 +108,17 @@
 
     <modal-component name="detail"
       v-bind:title="$store.state.item.title">
-        <p>@{{$store.state.item.type}}</p>
-        <p>@{{$store.state.item.client}}</p>
-        <p>@{{$store.state.item.price}}</p>
-        <p>@{{$store.state.item.publicationDate}}</p>
+        <div class="card">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <p><strong>Tipo:</strong> </p><p>@{{$store.state.item.type}}</p><hr>
+            <p><strong>Descrição:</strong> </p><p>@{{$store.state.item.description}}</p><hr>
+            <p><strong>Cliente:</strong> </p><p>@{{$store.state.item.client}}</p><hr>
+            <p><strong>Preço:</strong> </p><p>@{{$store.state.item.price}}</p><hr>
+            <p><strong>Prazo:</strong> </p><p>@{{$store.state.item.deadline}}</p><hr>
+            <p><strong>Parcelas:</strong> </p><p>@{{$store.state.item.installments}}</p><hr>
+            <p><strong>Parcelas Pagas:</strong> </p><p>@{{$store.state.item.paidOut}}</p>
+          </div>
+        </div>
     </modal-component>
 @endsection

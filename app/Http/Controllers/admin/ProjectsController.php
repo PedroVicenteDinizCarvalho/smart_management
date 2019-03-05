@@ -20,7 +20,7 @@ class ProjectsController extends Controller
             ['title'=>'Projetos', 'url'=>""]
         ]);
 
-        $listItems = Project::select('id', 'title', 'type', 'client', 'price', 'publicationDate')->paginate(2);
+        $listItems = Project::select('id', 'title', 'type', 'client', 'price', 'deadline')->paginate(2);
 
         return view('projects/index', compact('listLinks', 'listItems'));
     }
@@ -48,8 +48,7 @@ class ProjectsController extends Controller
             "title" => "required",
             "type" => "required",
             "client" => "required",
-            "price" => "required",
-            "publicationDate" => "required"
+            "price" => "required"
         ]);
 
         if($validator->fails()){
@@ -97,8 +96,7 @@ class ProjectsController extends Controller
             "title" => "required",
             "type" => "required",
             "client" => "required",
-            "price" => "required",
-            "publicationDate" => "required"
+            "price" => "required"
         ]);
 
         if($validator->fails()){
