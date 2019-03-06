@@ -26,7 +26,7 @@
     </div>
 	</table-component>
 
-	<modal-component name="create" title="Criar Projeto">
+	  <modal-component name="create" title="Criar Projeto">
 		    <form-component id="formCreate" css="" action="{{route('projects.store')}}" method="post" enctype="" token="{{ csrf_token() }}">
           <div class="form-group">
             <label for="title">Titulo:</label>
@@ -38,7 +38,7 @@
           </div>
           <div class="form-group">
             <label for="description">Descrição:</label>
-            <textarea name="description" id="description" cols="30" rows="10">{{old('description')}}</textarea>
+            <textarea class="form-control" name="description" id="description" cols="30" rows="10">{{old('description')}}</textarea>
           </div>
           <div class="form-group">
             <label for="client">Cliente:</label>
@@ -64,9 +64,9 @@
         <span slot="buttons">
           <button form="formCreate" type="submit" class="btn btn-primary">Criar</button>
         </span>
-	</modal-component>
+	  </modal-component>
 
-	<modal-component name="edit" title="Editar Projeto">
+	  <modal-component name="edit" title="Editar Projeto">
         <form-component id="formEdit" css="" v-bind:action="'/admin/projects/' + $store.state.item.id" method="put" token="{{ csrf_token() }}">
           <div class="form-group">
             <label for="title">Titulo:</label>
@@ -111,13 +111,13 @@
         <div class="card">
           <img src="..." class="card-img-top" alt="...">
           <div class="card-body">
-            <p><strong>Tipo:</strong> </p><p>@{{$store.state.item.type}}</p><hr>
-            <p><strong>Descrição:</strong> </p><p>@{{$store.state.item.description}}</p><hr>
-            <p><strong>Cliente:</strong> </p><p>@{{$store.state.item.client}}</p><hr>
-            <p><strong>Preço:</strong> </p><p>@{{$store.state.item.price}}</p><hr>
-            <p><strong>Prazo:</strong> </p><p>@{{$store.state.item.deadline}}</p><hr>
-            <p><strong>Parcelas:</strong> </p><p>@{{$store.state.item.installments}}</p><hr>
-            <p><strong>Parcelas Pagas:</strong> </p><p>@{{$store.state.item.paidOut}}</p>
+            <p><strong>Tipo:</strong> @{{$store.state.item.type}}</p><hr>
+            <p><strong>Descrição:</strong> @{{$store.state.item.description}}</p><hr>
+            <p><strong>Cliente:</strong> @{{$store.state.item.client}}</p><hr>
+            <p><strong>Preço:</strong> @{{$store.state.item.price}}</p><hr>
+            <p><strong>Prazo:</strong> @{{$store.state.item.deadline}}</p><hr>
+            <p><strong>Parcelas:</strong> @{{$store.state.item.installments}}</p><hr>
+            <p><strong>Parcelas Pagas:</strong> @{{$store.state.item.paidOut}}</p>
           </div>
         </div>
     </modal-component>

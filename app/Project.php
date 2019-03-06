@@ -13,4 +13,6 @@ class Project extends Model
     protected $fillable = ['title', 'type', 'description', 'client', 'price', 'deadline', 'installments', 'paidOut'];
 
     protected $dates = ['delete_at'];
+
+
 }

@@ -19,6 +19,9 @@
 				<minimalist-box-component 
 					title="Financeiro" number="30" icon="ion ion-calculator" color="bg-orange" url="">
 				</minimalist-box-component>
+				<minimalist-box-component 
+					title="Usuários" number="30" icon="ion ion-calculator" color="bg-orange" url="admin/users">
+				</minimalist-box-component>
 			</div>
 
 		</page-nav-component>
